@@ -21,7 +21,7 @@
   "author": "FAL.AI Image Editor",
   "license": "MIT",
   "dependencies": {
-    "@fal-ai/client": "^0.7.0"
+    "@fal-ai/client": "latest"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
@@ -32,10 +32,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/fal-ai-image-editor.git"
+    "url": "https://github.com/beiqi7/doomed.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/fal-ai-image-editor/issues"
+    "url": "https://github.com/beiqi7/doomed/issues"
   },
-  "homepage": "https://github.com/your-username/fal-ai-image-editor#readme"
+  "homepage": "https://github.com/beiqi7/doomed#readme"
 }
+
