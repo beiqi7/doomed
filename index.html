@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAL.AI 图像编辑工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 FAL.AI 图像编辑工具</h1>
+            <p>使用 ByteDance SeedDream 4.0 进行智能图像编辑</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <h2>📁 上传图片</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📷</div>
+                        <p>点击或拖拽图片到此处</p>
+                        <p class="upload-hint">支持多张图片，最多10张</p>
+                    </div>
+                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+                </div>
+                <div class="image-preview" id="imagePreview"></div>
+            </div>
+
+            <div class="settings-section">
+                <h2>⚙️ 编辑设置</h2>
+                <div class="form-group">
+                    <label for="prompt">编辑提示词：</label>
+                    <textarea id="prompt" placeholder="描述您想要对图片进行的编辑，例如：给模特穿上这些衣服和鞋子" rows="3"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="imageSize">图片尺寸：</label>
+                        <select id="imageSize">
+                            <option value="square_hd">正方形高清 (1024x1024)</option>
+                            <option value="square">正方形 (1024x1024)</option>
+                            <option value="portrait_4_3">竖屏 4:3</option>
+                            <option value="portrait_16_9">竖屏 16:9</option>
+                            <option value="landscape_4_3">横屏 4:3</option>
+                            <option value="landscape_16_9">横屏 16:9</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numImages">生成数量：</label>
+                        <input type="number" id="numImages" min="1" max="4" value="1">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="seed">随机种子（可选）：</label>
+                        <input type="number" id="seed" placeholder="留空则随机生成">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="enableSafetyChecker">
+                            <span class="checkmark"></span>
+                            启用安全检查
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="api-section">
+                <h2>🔑 API 配置</h2>
+                <div class="form-group">
+                    <label for="apiKey">FAL.AI API Key：</label>
+                    <input type="password" id="apiKey" placeholder="请输入您的 FAL.AI API Key">
+                    <small>您的API Key将安全存储在本地，不会发送到任何服务器</small>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button id="generateBtn" class="generate-btn" disabled>
+                    <span class="btn-text">🚀 开始编辑</span>
+                    <span class="btn-loading" style="display: none;">⏳ 处理中...</span>
+                </button>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h2>✨ 编辑结果</h2>
+                <div class="result-images" id="resultImages"></div>
+                <div class="result-info" id="resultInfo"></div>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <h2>❌ 错误信息</h2>
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by <a href="https://fal.ai" target="_blank">FAL.AI</a> | ByteDance SeedDream 4.0</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/@fal-ai/client@latest/dist/index.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

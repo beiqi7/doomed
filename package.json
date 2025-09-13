@@ -1,0 +1,41 @@
+{
+  "name": "fal-ai-image-editor",
+  "version": "1.0.0",
+  "description": "基于FAL.AI的ByteDance SeedDream 4.0图像编辑工具",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 8080 -o",
+    "dev": "npx live-server --port=8080 --open=/",
+    "build": "echo 'No build process needed for static site'",
+    "serve": "python -m http.server 8080"
+  },
+  "keywords": [
+    "fal-ai",
+    "image-editing",
+    "bytedance",
+    "seedream",
+    "ai",
+    "image-generation",
+    "computer-vision"
+  ],
+  "author": "FAL.AI Image Editor",
+  "license": "MIT",
+  "dependencies": {
+    "@fal-ai/client": "^0.7.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/fal-ai-image-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/fal-ai-image-editor/issues"
+  },
+  "homepage": "https://github.com/your-username/fal-ai-image-editor#readme"
+}
