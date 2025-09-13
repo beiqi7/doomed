@@ -44,10 +44,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "index.html": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }
