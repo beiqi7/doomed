@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "fal-ai-image-editor",
+  "outputDirectory": ".",
   "rewrites": [
     {
       "source": "/(.*)",
