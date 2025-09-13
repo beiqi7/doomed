@@ -24,6 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.location.hostname.includes('vercel.app')) {
             console.log('运行在Vercel环境中');
         }
+        
+        // 延迟检查FAL客户端是否加载
+        setTimeout(() => {
+            if (typeof fal === 'undefined') {
+                console.warn('FAL.AI客户端可能未正确加载');
+                showError('FAL.AI客户端加载异常，请刷新页面重试');
+            } else {
+                console.log('FAL.AI客户端已就绪');
+            }
+        }, 2000);
+        
     } catch (error) {
         console.error('初始化失败:', error);
         showError('页面初始化失败，请刷新页面重试');
@@ -145,6 +156,12 @@ async function handleGenerate() {
     
     if (!prompt || !apiKey || uploadedImages.length === 0) {
         showError('请填写所有必需字段并上传至少一张图片');
+        return;
+    }
+
+    // 检查FAL客户端是否可用
+    if (typeof fal === 'undefined') {
+        showError('FAL.AI客户端未加载，请刷新页面重试');
         return;
     }
 
