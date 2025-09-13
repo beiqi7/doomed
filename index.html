@@ -102,7 +102,26 @@
         </footer>
     </div>
 
-    <script src="https://unpkg.com/@fal-ai/client@latest/dist/index.js"></script>
+    <script src="https://unpkg.com/@fal-ai/client@0.6.0/dist/index.js"></script>
+    <script>
+        // 检查FAL客户端是否加载成功
+        if (typeof fal === 'undefined') {
+            console.error('FAL.AI客户端加载失败，尝试备用CDN');
+            // 加载备用CDN
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@fal-ai/client@0.6.0/dist/index.js';
+            script.onload = function() {
+                console.log('FAL.AI客户端从备用CDN加载成功');
+            };
+            script.onerror = function() {
+                console.error('所有CDN都加载失败');
+                alert('FAL.AI客户端加载失败，请检查网络连接或刷新页面重试');
+            };
+            document.head.appendChild(script);
+        } else {
+            console.log('FAL.AI客户端加载成功');
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
